@@ -19,6 +19,13 @@ Take a look at [blogages.appspot.com](http://blogages.appspot.com) for a demonst
 
 The administration is not available on demo right now.
 
+TODO
+----
+
+* Make it work out of Google App Engine too
+* Better way for patching userena to work in Google App Engine
+* Use git submodules for external libraries
+
 License
 -------
 
