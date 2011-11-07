@@ -17,20 +17,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-# For more details about the code below, take a look at:
-# http://groups.google.com/group/django-non-relational/msg/d324fb578daf0c1d
-#DATABASES['native'] = { 
-#    'ENGINE': 'djangoappengine.db', 
-#    'HIGH_REPLICATION': False, 
-#    'DEV_APPSERVER_OPTIONS': { 
-#        'high_replication' : False, 
-#        'use_sqlite': False,
-#    } 
-#} 
-
-#DATABASES['native'] = DATABASES['default']
-#DATABASES['default'] = {'ENGINE': 'dbindexer', 'TARGET': 'native'}
-
 DBINDEXER_SITECONF = 'dbindexes'
 
 # Local time zone for this installation. Choices can be found here:
