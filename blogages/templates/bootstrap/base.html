@@ -1,0 +1,35 @@
+{% extends "bootstrap/bootstrap_base.html" %}
+
+{% load i18n %}
+
+{% block bootstrap_css %}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/Aristo/Aristo.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/admin.css" />
+{% endblock %}
+
+{% block jquery_js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui-1.8.16.custom.min.js"></script>
+{% endblock %}
+
+{% block topbar_container %}
+<h3><a href="{% url home %}">django blogages</a></h3>
+{% if user.is_authenticated %}
+<ul> 
+    <li><a href="{% url blogages_core:post_list %}">{% trans "Posts" %}</a></li> 
+    <li><a href="{% url blogages_core:user_list %}">{% trans "Users" %}</a></li> 
+</ul>
+<ul class="nav secondary-nav"> 
+    <li class="menu"> 
+    <a href="javascript:void(0)" class="menu">{{ user.email }}</a> 
+    <ul class="menu-dropdown"> 
+        <li><a href="{% url userena_profile_detail user.username %}">{% trans "Your profile" %}</a></li> 
+        <li><a href="{% url userena_profile_edit user.username %}">{% trans "Account setup" %}</a></li> 
+        <li class="divider"></li> 
+        <li><a href="{% url userena_signout %}">{% trans "Logout" %}</a></li> 
+    </ul> 
+    </li> 
+</ul> 
+{% endif %}
+{% endblock %}

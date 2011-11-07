@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block page_header %}
+    <h1>{% blocktrans with profile.user.username as username %}{{ username }}'s profile.{% endblocktrans %}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class=sidebar>
+            <ul class="media-grid">
+                <li>
+                    <a href=""><img class=thumbnail src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" /></a>
+                </li>
+            </ul>
+
+            <p>
+                <strong>{{ profile.user.get_full_name }}</strong>
+                {% if profile.user.email %}
+                    <br />
+                    {{ profile.user.email }}
+                {% endif %}
+            </p>
+
+            <p>
+                <strong>{% trans "last login"|capfirst %}</strong>
+                <br />
+                {{ profile.user.last_login|date:"l, d/m/y \à\s H:i" }}
+            </p>
+        </div>
+    
+        <div class=content>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "bootstrap/list.html" %}
+
+{% load i18n %}
+
+{% block button_bar %}
+    <a href="{% url blogages_core:post_list %}" class="btn">{% trans "Back to" %} {% trans "Posts" %}</a>
+{% endblock %}
+
+{% block thead %}
+    <th>#</th>
+    <th>{% trans "Post" %}</th>
+    <th>{% trans "Author" %}</th>
+    <th>{% trans "Email address" %}</th>
+    <th>{% trans "Submit date" %}</th>
+    <th>{% trans "IP address" %}</th>
+{% endblock %}
+
+{% block each_tr %}
+    <td>{{ object.pk }}</td>
+    <td><a href="{{ object.get_absolute_url }}">{{ object.content_object.title }}</a></td>
+    <td>{{ object.user_name }}</td>
+    <td>{{ object.user_email }}</td>
+    <td>{{ object.submit_date|date }}</td>
+    <td>{{ object.ip_address|default:"-" }}</td>
+{% endblock %}

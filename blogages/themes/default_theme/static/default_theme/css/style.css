@@ -1,0 +1,27 @@
+body { font-family:"Lucida Grande", "Trebuchet MS", Arial, sans-serif; width:600px; margin:0 auto 1.6em auto; background:#48577D; color:#fff; }
+
+.header h1 { text-shadow:#48577D 3px 2px; }
+.header h1 a { text-decoration:none; color:#fff; }
+.header h1 a:hover { text-shadow:#43464C 3px 2px; }
+
+.container { padding:12px; border-radius:6px; -moz-border-radius:6px; background:#fff; color:#000; border:6px solid #9197A6; }
+.container a { color:#43464C; text-decoration:none; }
+.container a:hover { color:#48577D; }
+
+.container h2,
+.container h3 { font-size:1.6em; text-shadow:#9197A6 1px 1px; }
+
+.container h2 { margin-top:0; margin-bottom:0; }
+.container h3 { margin-top:0; }
+
+.post a { text-decoration:underline; }
+
+.posts ul { margin-top:0; }
+
+.comment { border-bottom:1px dotted #ccc; margin-bottom:12px; }
+.comment_content { margin:12px 0; }
+
+.comment_form { margin-top:1.6em; }
+.comment_form label { display:block; margin:4px 0; padding:4px 0; }
+.comment_form input[type=text], .comment_form textarea { border:1px solid #aaa; padding:4px; font-size:1em; }
+.comment_form #id_email, .comment_form #id_url { width:360px; }

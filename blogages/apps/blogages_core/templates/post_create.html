@@ -1,0 +1,11 @@
+{% extends "bootstrap/create.html" %}
+
+{% block head %}
+    {{ block.super }}
+    {% include "post_head.html" %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    {% include "post_preview.html" %}
+{% endblock %}

@@ -1,0 +1,5 @@
+{% load i18n %}
+
+<a class="btn" href="{% url userena_profile_edit profile_user.username %}">{% trans "Edit details" %}</a></li>
+<a class="btn" href="{% url userena_password_change profile_user.username %}">{% trans "Change password" %}</a></li>
+<a class="btn" href="{% url userena_email_change profile_user.username %}">{% trans "Change email" %}</a></li>

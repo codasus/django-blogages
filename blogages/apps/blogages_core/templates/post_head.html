@@ -1,0 +1,30 @@
+<script type="text/javascript" src="{{ STATIC_URL }}js/urlify.js"></script>
+<script type="text/javascript">
+    $(function(){
+        /* Thankfully taken from:
+         * http://stackoverflow.com/questions/1388425/django-auto-slug-in-model-forms-like-prepopulated-fields-in-django-admin/1389315#1389315
+         */
+        document.getElementById("id_title").onkeyup = function()
+        {
+            var e = document.getElementById("id_slug");
+            if (!e._changed) { e.value = URLify(document.getElementById("id_title").value, 50); }
+        }
+
+        // Date picker
+        $('#id_date_published').datepicker();
+
+        // Preview
+        var form = $('form[name=preview]');
+        var text = form.find('textarea');
+        var timer;
+
+        $('#id_text').keyup(function(){
+            self = $(this);
+            clearTimeout(timer);
+            timer = setTimeout(function(){
+                text.val(self.val());
+                form.submit();
+            }, 500);
+        }).trigger('keyup');
+    });
+</script>

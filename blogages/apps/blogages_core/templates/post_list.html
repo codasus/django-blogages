@@ -1,0 +1,26 @@
+{% extends "bootstrap/list.html" %}
+
+{% load i18n comments %}
+
+{% block thead %}
+    <th>{% trans "Title" %}</th>
+    <th>{% trans "Author" %}</th>
+    <th>{% trans "State" %}</th>
+    <th>{% trans "Date published" %}</th>
+    <th>{% trans "Comments" %}</th>
+{% endblock %}
+
+{% block each_tr %}
+    <td><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></td>
+    <td>{{ object.user.get_full_name }}</td>
+    <td>{{ object.state|capfirst }}</td>
+    <td>{% if object.state == "published" %}
+            {{ object.date_published }}
+        {% else %}
+            <span class="label warning">{% trans "Not published" %}</span>
+    {% endif %}</td>
+    <td>
+        {% get_comment_count for object as comment_count %}
+        <a href="{% url blogages_core:comment_list post_pk=object.pk %}">{{ comment_count }}</a>
+    </td>
+{% endblock %}

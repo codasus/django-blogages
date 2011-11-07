@@ -1,0 +1,15 @@
+{% load comments i18n %}
+
+<form action="{% comment_form_target %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{% url single slug=object.slug %}" />
+    {{ comment_form }}
+    <table>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="submit" value="{% trans "Post" %}">
+                <input type="submit" name="preview" value="{% trans "Preview" %}">
+            </td>
+        </tr>
+    </table>
+</form>

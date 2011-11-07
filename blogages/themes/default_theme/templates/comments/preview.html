@@ -1,0 +1,15 @@
+{% extends "comments/base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Preview your comment" %}{% endblock %}
+
+{% block content %}
+    <div class=comment_form>
+    {% with form.target_object as object %}
+        {% with form as comment_form %}
+            {% include "comment_form.html" %}
+        {% endwith %}
+    {% endwith %}
+    </div>
+{% endblock %}

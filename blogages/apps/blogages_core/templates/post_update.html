@@ -1,0 +1,21 @@
+{% extends "bootstrap/update.html" %}
+
+{% load i18n %}
+
+{% block head %}
+    {{ block.super }}
+    {% include "post_head.html" %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    {% include "post_preview.html" %}
+{% endblock %}
+
+{% block actions %}
+{% comment %}
+    Fix a bug in django-bootstrap (unclosed div)
+{% endcomment %}
+    {{ block.super }}
+</div>
+{% endblock %}

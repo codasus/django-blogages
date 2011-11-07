@@ -1,0 +1,31 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel=stylesheet type="text/css" media=all href="{{ STATIC_URL }}default_theme/css/style.css" />
+    </head>
+    <body>
+        <div class=header>
+            <h1><a href="/">Django Blogages Example</a></h1>
+        </div>
+        <div class=container>
+            {% block content %}
+            <div class=posts>
+                {% regroup object_list by get_year_month as object_list_per_month %}
+                {% for month_objects in object_list_per_month %}
+                    <h3>{{ month_objects.grouper|date:"F, Y" }}</h3>
+                    <ul>
+                    {% for object in month_objects.list %}
+                        <li><a href="/{{ object.slug }}">{{ object }}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% empty %}
+                <h3>{% trans "Ops" %}</h3>
+                <p>{% trans "No posts available" %}
+                {% endfor %}
+            </div>
+            {% endblock %}
+        </div>
+    </body>
+</html>
